@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">LogIn</string>
+    <string name="et_password">비밀번호</string>
+    <string name="btn_findPassword">비밀번호 찾기</string>
+    <string name="et_id">아이디</string>
+    <string name="btn_register">회원가입</string>
+    <string name="chk_login">로그인 상태 유지</string>
+    <string name="btn_login">로그인</string>
+    <string name="btn_findId">아이디 찾기</string>
+    <string name="btn_my_page">마이페이지(테스트)</string>
+    <string name="item_change_profile">정보수정</string>
+    <string name="item_my_page">마이페이지</string>
+    <string name="btn_posting">게시물 작성</string>
+    <string name="btn_apply">작성</string>
+    <string name="btn_cancel">취소</string>
+    <string name="et_title">제목</string>
+    <string name="et_posting">본문</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

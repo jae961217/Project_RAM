@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="홈"
+        android:id="@+id/test1"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_delete"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/test2"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_delete"
+        android:title="게시판"
+        app:showAsAction="ifRoom" />
+    <item android:title="채팅"
+        android:id="@+id/test3"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_delete"
+        app:showAsAction="ifRoom" />
+    <item android:title="마이페이지"
+        android:id="@+id/test4"
+        android:enabled="true"
+        android:icon="@android:drawable/ic_delete"
+        app:showAsAction="ifRoom"/>
+</menu>

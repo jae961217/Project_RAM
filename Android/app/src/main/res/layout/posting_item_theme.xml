@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/posting_item"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="96dp">
+
+        <TextView
+            android:id="@+id/posting_date"
+            android:layout_width="176dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:text="날짜"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/posting_title"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.002" />
+
+        <TextView
+            android:id="@+id/posting_title"
+            android:layout_width="182dp"
+            android:layout_height="33dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:text="제목"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/posting_index"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="index"
+            android:visibility="gone"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="738dp" />
+
+        <TextView
+            android:id="@+id/posting_nickName"
+            android:layout_width="96dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:text="이름"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/posting_region"
+            app:layout_constraintHorizontal_bias="0.604"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posting_title" />
+
+        <TextView
+            android:id="@+id/posting_status"
+            android:layout_width="60dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:text="상태"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/posting_date" />
+
+        <TextView
+            android:id="@+id/posting_region"
+            android:layout_width="136dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginRight="50dp"
+            android:text="지역"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/posting_status"
+            app:layout_constraintTop_toBottomOf="@+id/posting_date" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
