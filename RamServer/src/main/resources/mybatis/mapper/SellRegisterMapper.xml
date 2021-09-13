@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.ramserver.mapper.SellRegisterMapper">
+    <insert id="InsertSellingBoard" parameterType="com.example.ramserver.vo.SellRegisterVo">
+insert into board values (#{boardId},#{id},#{title},#{price},#{status},#{content},#{img},#{boardTime});
+   </insert>
+    <select id="GetBoardCount" resultType="int">
+        select COUNT(*) From board;
+    </select>
+</mapper>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.ramserver.mapper.ChatRoomMapper">
+    <select id="FindChatter" parameterType="string" resultType="string">
+        select ChatRoom.id2 from
+(SELECT  A.chatroomid, A.userid as id1,B.userid as id2 FROM rotten.chatroom_user A, rotten.chatroom_user B
+where A.chatroomid=B.chatroomid and A.userid!=B.userid) ChatRoom
+where ChatRoom.id1=#{value};
+    </select>
+
+    <select id="MakeResponse" parameterType="string" resultType="com.example.ramserver.vo.ImageVo">
+select userimage.id,userimage.data from userimage,
+        (select ChatRoom.id2 from
+(SELECT  A.chatroomid, A.userid as id1,B.userid as id2 FROM rotten.chatroom_user A, rotten.chatroom_user B
+where A.chatroomid=B.chatroomid and A.userid!=B.userid) ChatRoom
+where ChatRoom.id1=#{value}) C
+where C.id2=userimage.id;
+    </select>
+
+    <select id="GetMessage" parameterType="com.example.ramserver.vo.FindMessageVo" resultType="com.example.ramserver.Response.EnterChatResponse">
+        select chatroom_id,sender_id,receiver_id,message,send_time,msgtype from chatmessage
+        where (sender_id=#{senderId} and receiver_id=#{receiverId}) or (sender_id=#{receiverId} and receiver_id=#{senderId})
+    </select>
+
+    <select id="GetMessageCount" resultType="int">
+        select COUNT (*) from chatmessage;
+    </select>
+
+    <select id="GetChatRoomId" parameterType="com.example.ramserver.vo.FindChatRoomVo" resultType="int">
+         select ChatRoom.cid from
+(SELECT  A.chatroomid as cid, A.userid as id1,B.userid as id2 FROM rotten.chatroom_user A, rotten.chatroom_user B
+where A.chatroomid=B.chatroomid and A.userid!=B.userid) ChatRoom
+where (ChatRoom.id1=#{id1} AND ChatRoom.id2=#{id2}) OR (ChatRoom.id1=#{id2} AND ChatRoom.id2=#{id1})
+    </select>
+
+    <insert id="InsertChatMessage" parameterType="com.example.ramserver.vo.ChatInsertVo">
+        INSERT INTO `rotten`.`chatmessage`
+(message_id,
+chatroom_id,
+sender_id,
+receiver_id,
+message,
+send_time,
+msgtype)
+VALUES (#{messageId},#{chatRoomId},#{author},#{receiver},#{msg},#{Date},#{type})
+    </insert>
+    
+    
+    
+    <select id="GetAllImageInfo" resultType="com.example.ramserver.vo.ImageVo">
+        select * from userimage
+    </select>
+
+
+    <select id="GetAllImagePathInfo" parameterType="string" resultType="com.example.ramserver.vo.ImagePathVo">
+        select userimageinfo.id,userimageinfo.filepath from userimageinfo,
+        (select ChatRoom.id2 from
+(SELECT  A.chatroomid, A.userid as id1,B.userid as id2 FROM rotten.chatroom_user A, rotten.chatroom_user B
+where A.chatroomid=B.chatroomid and A.userid!=B.userid) ChatRoom
+where ChatRoom.id1=#{value}) C
+where C.id2=userimageinfo.id;
+    </select>
+</mapper>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.ramserver.mapper.MyPageMapper">
+    <select id="myPage" resultType="com.example.ramserver.model.User" parameterType="string">
+        select * from user where ID=#{id};
+    </select>
+    <update id="myPageUpdate" parameterType="com.example.ramserver.model.User">
+        update user set password=#{password}, userName=#{userName}, phoneNumber=#{phoneNumber}, region=#{region}, bank=#{bank}, account=#{account} where ID=#{id} limit 1;
+    </update>
+</mapper>
+
